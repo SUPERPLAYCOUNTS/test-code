@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" href="styles/style.css"/>
-  <title>test code</title>
-</head>
-<body>
-<header>
-  <h1>Odometer</h1>
-</header>
+<html lang="en">
 
-<main>
-  <p class="odometer" id="odometer">0</p>
-</main>
-  <script src="scripts/scripts.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="odometer.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Fake subs test code</title>
+</head>
+
+<body>
+
+  <h2>Subscribers</h2>
+
+  <div class="subs-odometer">0</div>
+
+  <script src="odometer.js"></script>
+
+  <script>
+
+    const subsOdometer = document.querySelector(".subs-odometer");
+
+    const odometer = new Odometer({
+      el: subsOdometer,
+    })
+
+    // odometer.update(1426);
+    subsOdometer.innerHTML = 1426;
+
+
+  </script>
+
+
 </body>
+
 </html>
