@@ -1,28 +1,26 @@
 body {
-  font-family: sans-serif;
-  margin: 0;
+  min-width: 230px;
+  text-align: center;
+  font-family: Arial;
 }
-.section {
-  height: 100vh;
-  background-color: #7b1fa2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+header h1 {
+  font-weight: normal;
+  padding: 20px;
+  font-size: 42px;
+  letter-spacing: 0.1em;
 }
-.menu-btn {
+
+main {
+  width: 80%;
+  max-width: 400px;
+  margin: auto;
+  font-size: clamp(60px, 30vw, 200px);
+  border: solid 2px;
+}
+
+main #odometer {
   display: block;
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: relative;
+  margin: 0;
+  padding: 0 20px;
 }
-.menu-btn span,
-.menu-btn span::before,
-.menu-btn span::after {
-  position: absolute;
-  top: 50%; margin-top: -1px;
-  left: 50%; margin-left: -10px;
-  width: 20px;
-  height: 2px;
-  background-color: #222;
