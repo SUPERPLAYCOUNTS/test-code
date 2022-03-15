@@ -123,3 +123,7 @@ h1 {
     transform: rotate(-45deg);
     top: 13px;
   }
+
+  .videocontainer {
+    text-align: center;
+  }
