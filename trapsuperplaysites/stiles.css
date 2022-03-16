@@ -17,7 +17,7 @@
 }
 
 .container{
-  max-width: 1200px;
+  max-width: 1250px;
   margin: 10px auto;
   padding: 0px 10px;
 }
@@ -47,20 +47,74 @@
   align-items: center;
 }
 
-
-@media (max-width:1024px){
+@media (max-width:1440px){
+  .container{
+    max-width: 1100px;
+  }
+}
+@media (max-width:1291px){
+  .container{
+    max-width: 1000px;
+  }
+}
+@media (max-width:1190px){
+  .container{
+    max-width: 900px;
+  }
+}
+@media (max-width:1110px){
+  .container{
+    max-width: 800px;
+  }
+}
+@media (max-width:1014px){
   .container{
     max-width: 700px;
   }
 }
-@media (max-width:768px){
+@media (max-width:933px){
   .container{
-    max-width: 425px;
+    max-width: 600px;
   }
 }
-@media (max-width:425px){
+@media (max-width:848px){
   .container{
-    max-width: 200px;
+    max-width: 510px;
+  }
+}
+@media (max-width:755px){
+  .container{
+    max-width: 400px;
+  }
+}
+@media (max-width:680px){
+  .container{
+    max-width: 320px;
+  }
+}
+@media (max-width:599px){
+  .container{
+    max-width: 270px;
+  }
+}
+@media (max-width:543px){
+  .container{
+    max-width: 190px;
+  }
+}
+@media (max-width:458px){
+  .container{
+    max-width: 150px;
+  }
+}
+@media (max-width:436px){
+  .container{
+    max-width: 90px;
+  }
+}
+@media (max-width:378px){
+  .container{
+    max-width: 20px;
   }
 }
 
@@ -74,9 +128,6 @@ h1 {
     text-align: center;
     font-family: 'Bebas Neue', cursive;
     color: rgb(255, 255, 255);
-}
-p {
-  color: rgb(255, 255, 255);
 }
 .burger {
     display: flex;
