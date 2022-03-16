@@ -99,22 +99,22 @@
 }
 @media (max-width:543px){
   .container{
-    max-width: 190px;
+    max-width: 240px;
   }
 }
 @media (max-width:458px){
   .container{
-    max-width: 150px;
+    max-width: 210px;
   }
 }
 @media (max-width:436px){
   .container{
-    max-width: 90px;
+    max-width: 190px;
   }
 }
 @media (max-width:378px){
   .container{
-    max-width: 20px;
+    max-width: 170px;
   }
 }
 
