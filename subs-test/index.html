@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://superplaycounts.github.io/test-code/subs-test/odometer.css">
-  <link rel="stylesheet" href="https://superplaycounts.github.io/test-code/subs-test/style.css">
+  <link rel="stylesheet" href="odometer.css">
+  <link rel="stylesheet" href="style.css">
   <title>Fake subs test code</title>
 </head>
 
 <body>
 
-  <h2>Subscribers</h2>
+  <div align="left" style="margin-top: 50% font-size: 36px">
+    <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name"><br>
+    <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs"><br>
+    <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
+    <input type="submit" value="Set Values" ONCLICK="submit(); updateSubs()"><br>
+  </div>
 
-  <div class="subs-odometer">0</div>
+    <div class="container">
+      <a id="channelName" style="font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin: 24px;">Channel name</a>
+      <div class="subs-odometer" id="channelSubs">0</div>
+      <h2>Subscribers</h2>
+    </div>
 
-  <script src="https://superplaycounts.github.io/test-code/subs-test/odometer.js"></script>
+  <script src="odometer.js"></script>
 
   <script>
 
@@ -27,12 +36,11 @@
     })
 
     // odometer.update(1426);
-    subsOdometer.innerHTML = 11456;
+    subsOdometer.innerHTML = 0;
 
 
   </script>
-
-
+<script src="odometers.js"></script>
 </body>
 
 </html>
