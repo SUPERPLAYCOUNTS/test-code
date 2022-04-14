@@ -11,8 +11,13 @@
 </head>
 
 <body>
+  <select class="change-lang">
+    <option value="ua">UA</option>
+    <option value="ru">RU</option>
+    <option value="en" selected>EN</option>
+  </select>
 
-  <div align="left" style="margin-top: 50% font-size: 36px">
+  <div align="left" style="margin-top: 50% font-size 36px">
     <input type="text" id="channelSubmitName" name="channelSubmitName" placeholder="Channel Name"><br>
     <input type="number" id="countSubmit" name="countSubmit" placeholder="Channel subs"><br>
     <input type="number" id="subsPerMinute" name="subsPerMinute" placeholder="Subs per minute (optional)"><br>
@@ -20,9 +25,9 @@
   </div>
 
     <div class="container">
-      <a id="channelName" style="font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin: 24px;">Channel name</a>
+      <a id="channelName" class="lng-names" style="font-size: 32px; text-transform: uppercase; letter-spacing: 2px; margin: 24px;">Channel name</a>
       <div class="subs-odometer" id="channelSubs">0</div>
-      <h2>Subscribers</h2>
+      <h2 class="lng-subsib">Subscribers</h2>
     </div>
 
   <script src="odometer.js"></script>
@@ -41,6 +46,8 @@
 
   </script>
 <script src="odometers.js"></script>
+<script src="lang.js"></script>
+<script src="app.js"></script>
 </body>
 
 </html>
