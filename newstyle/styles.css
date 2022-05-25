@@ -32,6 +32,28 @@ nav
 .header__burger {
     display: block;
 }
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+.header__list li{
+    list-style: none;
+    margin: 0px 0px 0px 20px;
+}
+.header__link {
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+}
+h2
+{
+    color: #000;
+    position: relative;
+    font-size: 100px;
+    text-align: center;
+}
 @media (max-width:767px){
     .header__burger {
         display: block;
@@ -79,5 +101,30 @@ nav
     .header__burger.active:after{
         transform:rotate(-45deg);
         bottom: 9px;
+    }
+    .header__menu{
+        position: absolute;
+        top: -500%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 0.3s ease 0s;
+        background-color: #ffffffd4;
+        padding: 130px 49px 33px 31px;
+        z-index: 1;
+    }
+    .header__menu.active{
+        top: 0;
+    }
+
+    .header__list {
+        display: block;
+    }
+    .header__list li{
+        margin: 0px 0px 20px 0px;
+    }
+    .header__link {
+        font-size: 24px;
     }
 }
