@@ -11,4 +11,14 @@ body{
     color: white;
     font-family: Roboto;
     font-size: 150px;
+    display: inline-block;
+}
+
+
+#comma1a, #comma2a{
+    color: white;
+    font-family: Roboto;
+    font-size: 150px;
+    display: inline-block;
+    vertical-align: bottom;
 }
