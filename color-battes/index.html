@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color battles | wall created: SUPER PLAY [MUSIC]</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/odometer.min.js" integrity="sha512-v3fZyWIk7kh9yGNQZf1SnSjIxjAKsYbg6UQ+B+QxAZqJQLrN3jMjrdNwcxV6tis6S0s1xyVDZrDz9UoRLfRpWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.7/themes/odometer-theme-minimal.css" integrity="sha512-82n59AgQXo3NhYHeauDYw9TE2zGh9yOdXN9wbiDZA+uaf0xOkSYxGNLzKMMngZQjBTw94EujhfEfKkYybQqfOQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="text" style="display: flex; justify-content: center; align-items: center; color: white; font-size: 4vw;">
+        <h1>Color battles</h1>
+    </div>
+    <div class="main__card">
+        <div class="column column_1" id="cardContainer"></div>
+        <div class="column column_2" id="cardContainer_2"></div>
+    </div>
+    <script>
+        async function fetchData(endpoint) {
+            const response = await fetch(endpoint);
+            const data = await response.json();
+            return data;
+        }
+    
+        async function createCard(cardId, colorEndpoint, colorClass) {
+            const container = document.getElementById('cardContainer');
+            const container2 = document.getElementById('cardContainer_2');
+    
+            const existingCard = document.getElementById(cardId);
+    
+            if (existingCard) {
+                try {
+                    const data = await fetchData(colorEndpoint);
+                    existingCard.style.backgroundColor = data.hex;
+                    existingCard.querySelector('.odometer').innerHTML = data.clicks;
+                    existingCard.dataset.clicks = data.clicks;
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            } else {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = cardId;
+    
+                const odometer = document.createElement('div');
+                odometer.className = `odometer ${colorClass}`;
+                odometer.innerHTML = '0';
+    
+                card.appendChild(odometer);
+    
+                if (container.children.length < 5) {
+                    container.appendChild(card);
+                } else {
+                    container2.appendChild(card);
+                }
+    
+                try {
+                    const data = await fetchData(colorEndpoint);
+                    card.style.backgroundColor = data.hex;
+                    odometer.innerHTML = data.clicks;
+                    card.dataset.clicks = data.clicks;
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            }
+        }
+        
+    
+        async function sortCards() {
+            const container1 = document.getElementById('cardContainer');
+            const container2 = document.getElementById('cardContainer_2');
+            let cards1 = Array.from(container1.children);
+            let cards2 = Array.from(container2.children);
+
+            const card4Clicks = parseInt(document.getElementById('card_4').dataset.clicks);
+            if (cards2.length > 0 && cards2[0].dataset.clicks > card4Clicks) {
+                container1.appendChild(cards2[0]);
+            if (cards1.length >= 5) {
+                container1.removeChild(cards1[cards1.length - 1]);
+            }
+            cards1 = Array.from(container1.children);
+            cards2 = Array.from(container2.children);
+            }
+    
+            const cards = cards1.concat(cards2);
+            cards.sort((a, b) => b.dataset.clicks - a.dataset.clicks);
+            cards.forEach(card => card.parentNode.appendChild(card));
+        }
+    
+        createCard('card_0', 'https://color-battles.up.railway.app/api/color/red', 'red');
+        createCard('card_1', 'https://color-battles.up.railway.app/api/color/orange', 'orange');
+        createCard('card_2', 'https://color-battles.up.railway.app/api/color/yellow', 'yellow');
+        createCard('card_3', 'https://color-battles.up.railway.app/api/color/green', 'green');
+        createCard('card_4', 'https://color-battles.up.railway.app/api/color/blue', 'blue');
+        createCard('card_5', 'https://color-battles.up.railway.app/api/color/cyan', 'cyan');
+        createCard('card_6', 'https://color-battles.up.railway.app/api/color/purple', 'purple');
+        createCard('card_7', 'https://color-battles.up.railway.app/api/color/pink', 'pink');
+        createCard('card_8', 'https://color-battles.up.railway.app/api/color/black', 'black');
+        createCard('card_9', 'https://color-battles.up.railway.app/api/color/white', 'white');
+    
+        setInterval(async () => {
+            await createCard('card_0', 'https://color-battles.up.railway.app/api/color/red', 'red');
+            await createCard('card_1', 'https://color-battles.up.railway.app/api/color/orange', 'orange');
+            await createCard('card_2', 'https://color-battles.up.railway.app/api/color/yellow', 'yellow');
+            await createCard('card_3', 'https://color-battles.up.railway.app/api/color/green', 'green');
+            await createCard('card_4', 'https://color-battles.up.railway.app/api/color/blue', 'blue');
+            await createCard('card_5', 'https://color-battles.up.railway.app/api/color/cyan', 'cyan');
+            await createCard('card_6', 'https://color-battles.up.railway.app/api/color/purple', 'purple');
+            await createCard('card_7', 'https://color-battles.up.railway.app/api/color/pink', 'pink');
+            await createCard('card_8', 'https://color-battles.up.railway.app/api/color/black', 'black');
+            await createCard('card_9', 'https://color-battles.up.railway.app/api/color/white', 'white');
+            sortCards();
+        }, 2000);
+    </script>
+    
+</body>
+</html>
