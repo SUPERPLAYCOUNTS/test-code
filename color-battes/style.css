@@ -38,8 +38,8 @@ body {
 }
 .num-container {
     color: #141414;
-    display: flex; /* Додаємо flex контейнер */
-    align-items: center; /* Вирівнюємо елементи по вертикалі */
+    display: flex;
+    align-items: center;
     -webkit-text-stroke: #ffffff;
     text-shadow: -1px -1px 0 #ffffff,  
                   1px -1px 0 #ffffff,
@@ -53,7 +53,7 @@ body {
     margin-top: calc(1vw - 2vh);
     margin-left: 0.2vw;
     margin-bottom: 0;
-    margin-right: 0; /* Додаємо відступ справа від одометра */
+    margin-right: 0;
 }
 
 .odometer.red {
@@ -98,5 +98,5 @@ body {
 
 .transition {
     transition-delay: 0s !important;
-    transform: translateY(-100px); /* Початкова позиція перед анімацією */
+    transform: translateY(-100px);
 }
