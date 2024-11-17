@@ -73,9 +73,9 @@ async function createCard(cardId, colorData, index) {
 
 async function fetchDataAndCreateCards() {
     try {
-        const data = await fetchData('https://color-battle-data.onrender.com/data/color/all');
-        data['color-data'].forEach((color, index) => {
-            createCard(`card_${index}`, color, index);
+        const data = await fetchData('https://color-battles.up.railway.app/api/top');
+        data.forEach((color, index) => {
+            createCard(`card_${color.id}`, color, index);
         });
     } catch (error) {
         console.error('Error:', error);
