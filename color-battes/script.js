@@ -83,4 +83,4 @@ async function fetchDataAndCreateCards() {
 }
 
 fetchDataAndCreateCards();
-setInterval(fetchDataAndCreateCards, 2000);
+setInterval(fetchDataAndCreateCards, 3000);
