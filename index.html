@@ -1,48 +1,110 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Список /</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/script.js"></script>
-</head>
-<body class="directory">
-  <input id="search" type="text" placeholder="Search" autocomplete="off" />
-  <div id="wrapper">
-    <h1><a href="/">~</a> Тут будут все тесты которые я делал или делаю</h1>
-    <ul id="files" class="view-tiles">
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/backgroundline" class="icon icon-directory" title="backgroundline"><span class="name">Задний фон сайта</span><span class="size"></span><span class="date">3/10/2022 8:49:14 PM</span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/burger-test" class="icon icon-directory" title="burger-test"><span class="name">бургер меню</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/coleso/" class="icon icon-directory" title="coleso"><span class="name">Колесо Фортуны (1-8)</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/coleso_fortune" class="icon icon-directory" title="coleso"><span class="name">Колесо Фортуны обновлено</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/countdown-animation/" class="icon icon-directory" title="countdown-animation"><span class="name">Анимация обратного отсчета</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/neon-linksocial" class="icon icon-directory" title="neon-linksocial"><span class="name">Неоновые ссылки</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/shoutout-wall-live" class="icon icon-directory" title="shoutout-wall-live"><span class="name">shoutout-wall-live</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/subs-test" class="icon icon-directory" title="burger-test"><span class="name">фейк счетчик подпичиков (первая версия)</span><span class="size"></span><span class="date"></span></a>
-      </li>
-      <li>
-        <a href="https://superplaycounts.github.io/test-code/yt-odometer" class="icon icon-directory" title="yt-odometer"><span class="name">Ютуб Одометер</span><span class="size"></span><span class="date"></span></a>
-      </li>
-    </ul>
-  </div>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+  <title>My Test Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
      crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="/"><i class="fas fa-flask-vial"></i> My Experiments</a></h1>
+      <input id="search" type="text" placeholder="Find the project..." autocomplete="off" />
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <p class="intro-text">A collection of my test assignments, experiments, and small projects.</p>
+      <ul id="files" class="project-grid">
+        <li>
+          <a href="/backgroundline/" class="project-card" title="backgroundline">
+            <div class="card-icon"><i class="fas fa-palette"></i></div>
+            <h3 class="name">Background of the website</h3>
+            <p class="description">Dynamic background with lines</p>
+          </a>
+        </li>
+        <li>
+          <a href="/bar/" class="project-card" title="burger-test">
+            <div class="card-icon"><i class="fas fa-hourglass-half"></i></div>
+            <h3 class="name">Progress Bar</h3>
+            <p class="description">Visualization of time-limited progress using a dynamic indicator and breakdown by checkpoints</p>
+          </a>
+        </li>
+        <li>
+          <a href="/burger-test/" class="project-card" title="burger-test">
+            <div class="card-icon"><i class="fas fa-bars"></i></div>
+            <h3 class="name">Burger menu</h3>
+            <p class="description">Testing the burger menu</p>
+          </a>
+        </li>
+        <li>
+          <a href="/coleso/" class="project-card" title="coleso">
+            <div class="card-icon"><i class="fas fa-dharmachakra"></i></div>
+            <h3 class="name">Wheel of Fortune (1-8)</h3>
+            <p class="description">Simple wheel of fortune</p>
+          </a>
+        </li>
+        <li>
+          <a href="/coleso_fortune/" class="project-card" title="coleso_fortune">
+            <div class="card-icon"><i class="fas fa-dharmachakra"></i></div>
+            <h3 class="name">Wheel of Fortune updated</h3>
+            <p class="description">Improved version of the wheel</p>
+          </a>
+        </li>
+        <li>
+          <a href="/countdown-animation/" class="project-card" title="countdown-animation">
+            <div class="card-icon"><i class="fas fa-stopwatch"></i></div>
+            <h3 class="name">Countdown animation</h3>
+            <p class="description">Animated timer</p>
+          </a>
+        </li>
+        <li>
+          <a href="/neon-linksocial/" class="project-card" title="neon-linksocial">
+            <div class="card-icon"><i class="fas fa-link"></i></div>
+            <h3 class="name">Neon links</h3>
+            <p class="description">Neon link styling</p>
+          </a>
+        </li>
+        <li>
+          <a href="/subs-test/" class="project-card" title="subs-test">
+            <div class="card-icon"><i class="fas fa-users"></i></div>
+            <h3 class="name">Fake subscriber counter</h3>
+            <p class="description">The first version of the fake counter when it was on the site</p>
+          </a>
+        </li>
+        <li>
+          <a href="/top-color-battles/" class="project-card" title="top-color-battles">
+            <div class="card-icon"><i class="fa-solid fa-jet-fighter-up"></i></div>
+            <h3 class="name">Top list color battles</h3>
+            <p class="description">The top list was developed for conducting the color battles stream</p>
+          </a>
+        </li>
+        <li>
+          <a href="/yt-odometer/" class="project-card" title="yt-odometer">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <h3 class="name">YouTube Studio Odometer</h3>
+            <p class="description">Animated counter in the style of YouTube Studio</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2020 - <span id="currentYear"></span> superplaycounts.github.io. All rights are almost reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="/assets/js/script.js"></script>
 </body>
 </html>
