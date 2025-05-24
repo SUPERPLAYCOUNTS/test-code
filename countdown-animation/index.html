@@ -2,32 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
+    <title>Countdown Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="home">
-        <h1 id="heading-style">Countdown Timer for Event</h1>
-        <div id="time">
-            <div class="frame">Days</div>
-            <div class="frame">Hours</div>
-            <div class="frame">Mins</div>
-            <div class="frame">Sec</div>
-        </div>
-        <div id="clock">
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>:</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>:</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>:</div></div>
-            <div class="number"><div>0</div></div>
-            <div class="number"><div>0</div></div>
+    <div class="countdown-wrapper">
+        <h1 class="countdown-title">Countdown Timer for Event</h1>
+        <div id="countdown">
+            <div class="time-unit">
+                <div class="digits" id="days">
+                    <span class="digit"></span>
+                    <span class="digit"></span>
+                    <span class="digit"></span>
+                </div>
+                <span class="label">Days</span>
+            </div>
+            <div class="time-unit">
+                <div class="digits" id="hours">
+                    <span class="digit"></span>
+                    <span class="digit"></span>
+                </div>
+                <span class="label">Hours</span>
+            </div>
+            <div class="time-unit">
+                <div class="digits" id="minutes">
+                    <span class="digit"></span>
+                    <span class="digit"></span>
+                </div>
+                <span class="label">Minutes</span>
+            </div>
+            <div class="time-unit">
+                <div class="digits" id="seconds">
+                    <span class="digit"></span>
+                    <span class="digit"></span>
+                </div>
+                <span class="label">Seconds</span>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
