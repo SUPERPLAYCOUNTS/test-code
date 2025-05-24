@@ -1,27 +1,44 @@
-const select = document.querySelector('select');
+const select = document.querySelector('select.change-lang');
 const allLang = ['en', 'ru', 'ua'];
 
-select.addEventListener('change', changeURLLanguage);
+if (select) {
+    select.addEventListener('change', changeURLLanguage);
+}
 
-function changeURLLanguage(){
+function changeURLLanguage() {
     let lang = select.value;
     location.href = window.location.pathname + '#' + lang;
     location.reload();
 }
 
-function changeLanguage(){
+function changeLanguage() {
     let hash = window.location.hash;
-    hash = hash.substr(1);
-    if (!allLang.includes(hash)){
-        location.href = window.location.pathname + '#en';
-        location.reload();
-    }
-    select.value = hash;
+    hash = hash.substring(1);
 
-    for (let key in langArr){
-        let elem = document.querySelector('.lng-'+key);
-        if (elem) {
-            elem.innerHTML = langArr[key][hash];
+    if (!allLang.includes(hash)) {
+        if (window.location.hash !== '#en' && hash !== 'en') {
+            location.href = window.location.pathname + '#en';
+            location.reload();
+            return;
+        }
+        hash = 'en';
+    }
+
+    if (select) {
+        select.value = hash;
+    }
+
+
+    for (let key in langArr) {
+        let elems = document.querySelectorAll('.lng-' + key);
+        if (elems.length > 0) {
+            elems.forEach(elem => {
+                if (langArr[key] && langArr[key][hash]) {
+                    elem.innerHTML = langArr[key][hash];
+                } else {
+                    console.warn(`No translation for key '${key}' in language '${hash}'`);
+                }
+            });
         }
     }
 }
