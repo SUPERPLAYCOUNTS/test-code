@@ -20,7 +20,9 @@ ul
 {
     position: relative;
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 ul li
 {
@@ -37,7 +39,6 @@ ul li
 ul li:hover
 {
     z-index: 10000;
-    transform: scale(0.75);
 }
 ul li::before
 {
@@ -45,11 +46,11 @@ ul li::before
     position: absolute;
     inset: 30px;
     box-shadow: 0 0 0 10px var(--clr),
-    0 0 0 20px var(--bg),
-    0 0 0 22px var(--clr);
+                0 0 0 20px var(--bg),
+                0 0 0 22px var(--clr);
     transition: 0.5s;
 }
-ul li:hover:before
+ul li:hover::before
 {
     inset: 0px;
 }
@@ -73,5 +74,7 @@ ul li a
 ul li:hover a
 {
     font-size: 3em;
-    filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr)) drop-shadow(0 0 60px var(--clr));
+    filter: drop-shadow(0 0 0px var(--clr))
+            drop-shadow(0 0 20px var(--clr))
+            drop-shadow(0 0 30px var(--clr));
 }
