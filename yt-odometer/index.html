@@ -1,28 +1,25 @@
+<!DOCTYPE html>
+<html>
 <head>
+    <meta charset="UTF-8">
+    <title>Odometer Counter</title>
+    <script>
+        window.odometerOptions = {
+            animation: 'byDigit',
+            format: '(,ddd)',
+            duration: 2000,
+        };
+    </script>
     <script src="odometer.js"></script>
-    <script src=ytodo.js></script>
-    <link href="odometer-theme-minimal.css" rel=stylesheet>
-    <link href="ytodo.css" rel=stylesheet>
+    <script defer src="ytodo.js"></script>
+    <link href="odometer-theme-minimal.css" rel="stylesheet">
+    <link href="ytodo.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
-<head>
+</head>
 
-    <body>
-
-        <div id=main>
-            <div id=odo1a class=odometer>0</div>
-            <div id=odo2a class=odometer>0</div>
-            <div id=odo3a class=odometer>0</div>
-            <div id=comma1a>,</div>
-            <div id=odo4a class=odometer>0</div>
-            <div id=odo5a class=odometer>0</div>
-            <div id=odo6a class=odometer>0</div>
-            <div id=comma2a>,</div>
-            <div id=odo7a class=odometer>0</div>
-            <div id=odo8a class=odometer>0</div>
-            <div id=odo9a class=odometer>0</div>
-        </div>
-
-
-    </body>
+<body>
+    <div id="main" class="odometer">0</div>
+</body>
+</html>
