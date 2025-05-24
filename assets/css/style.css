@@ -1,18 +1,17 @@
-/* assets/css/style.css */
 @font-face {
-  font-family: 'Fontsite'; /* Custom name for Bebas Neue */
-  src: url('https://superplaycounts.github.io/fonts/Bebas-Neue.ttf'); /* Adjust path if your font is located elsewhere */
+  font-family: 'Fontsite';
+  src: url('https://superplaycounts.github.io/fonts/Bebas-Neue.ttf');
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Fontsite', cursive; /* Global font application */
+  font-family: 'Fontsite', cursive;
 }
 
 body {
-  background-color: #f0f2f5; /* A light grey for the page background */
+  background-color: #f0f2f5;
   color: #333;
   line-height: 1.6;
 }
@@ -24,9 +23,8 @@ body {
   padding: 20px 0;
 }
 
-/* Header Styles */
 header {
-  background-color: #ffffff; /* White background for header */
+  background-color: #ffffff;
   padding: 20px 0;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -39,25 +37,25 @@ header .container {
 }
 
 header h1 a {
-  font-size: 2.8rem; /* Bebas Neue looks good large */
-  color: #2c3e50; /* Dark blue-grey for title */
+  font-size: 2.8rem;
+  color: #2c3e50;
   text-decoration: none;
   display: flex;
   align-items: center;
-  letter-spacing: 1px; /* Adjust spacing for Bebas Neue */
+  letter-spacing: 1px;
 }
 
 header h1 a i {
   margin-right: 12px;
-  color: #3498db; /* Blue accent for icon */
+  color: #3498db;
 }
 
 header input[type="text"] {
   padding: 12px 18px;
   border: 1px solid #ccc;
-  border-radius: 25px; /* Rounded search bar */
+  border-radius: 25px;
   width: 300px;
-  font-family: 'Roboto', sans-serif; /* Using Roboto for input field for better readability */
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -67,18 +65,17 @@ header input[type="text"]:focus {
   outline: none;
 }
 
-/* Main Content Styles */
+
 main .intro-text {
   text-align: center;
-  font-size: 1.6rem; /* Bebas Neue for intro text */
+  font-size: 1.6rem;
   color: #4a4a4a;
   margin: 40px auto;
   max-width: 750px;
   letter-spacing: 0.8px;
-  line-height: 1.5; /* Improved line height for Bebas Neue */
+  line-height: 1.5;
 }
 
-/* Project Grid Styles */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -108,7 +105,7 @@ main .intro-text {
 
 .project-card .card-icon {
   font-size: 2.8rem;
-  color: #3498db; /* Blue accent for icons */
+  color: #3498db;
   margin-bottom: 18px;
   text-align: center;
 }
@@ -119,7 +116,7 @@ main .intro-text {
 }
 
 .project-card .name {
-  font-size: 2rem; /* Bebas Neue for project names */
+  font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 12px;
   text-align: center;
@@ -133,33 +130,28 @@ main .intro-text {
   color: #555;
   flex-grow: 1;
   text-align: center;
-  font-family: 'Roboto', sans-serif; /* Roboto for descriptions for better readability */
+  font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  /* If you strictly want Bebas Neue for descriptions, uncomment the line below and comment out the Roboto line: */
-  /* font-family: 'Fontsite', cursive; letter-spacing: 0.3px; */
 }
 
-/* Search Highlight (used by script.js) */
 .project-card.highlight {
   border-left: 6px solid #3498db;
-  background-color: #e9f5fd; /* Light blue tint for highlighted card */
+  background-color: #e9f5fd;
 }
 
-/* Footer Styles */
 footer {
-  background-color: #2c3e50; /* Dark footer background */
-  color: #ecf0f1; /* Light text color for footer */
+  background-color: #2c3e50;
+  color: #ecf0f1;
   text-align: center;
   padding: 30px 0;
   margin-top: 60px;
 }
 
 footer p {
-  font-size: 1rem; /* Bebas Neue for footer text */
+  font-size: 1rem;
   letter-spacing: 0.5px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   header .container {
       flex-direction: column;
@@ -167,10 +159,10 @@ footer p {
   }
   header input[type="text"] {
       width: 90%;
-      max-width: 400px; /* Limit width on mobile */
+      max-width: 400px;
   }
   .project-grid {
-      grid-template-columns: 1fr; /* Single column on smaller screens */
+      grid-template-columns: 1fr;
       gap: 20px;
   }
   main .intro-text {

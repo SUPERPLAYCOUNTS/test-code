@@ -1,13 +1,9 @@
-// Оставляем вашу функцию $ для совместимости, хотя можно перейти на querySelector
 function $(id){
   var el = 'string' == typeof id
   ? document.getElementById(id)
   : id;
 
-  // Защита от null, если элемент не найден
   if (!el) {
-    // console.warn('Element not found:', id);
-    // Возвращаем фиктивный объект с пустыми методами, чтобы не ломать цепочки вызовов
     return {
       on: function() {},
       all: function() { return { each: function() {} }; },
@@ -15,7 +11,7 @@ function $(id){
       getClasses: function() { return []; },
       addClass: function() {},
       removeClass: function() {},
-      value: '' // для случая $('search').value
+      value: ''
     };
   }
 
@@ -29,36 +25,33 @@ function $(id){
     };
 
     el.all = function(selector){
-      // Убедимся, что querySelectorAll вызывается на DOM элементе
       if (el.querySelectorAll) {
         return $(el.querySelectorAll(selector));
       }
-      return $([]); // Возвращаем пустой массив-объект, если el не DOM элемент
+      return $([]);
     };
 
-    // Модифицируем .each, чтобы он работал с NodeList (результатом querySelectorAll)
     el.each = function(fn){
       if (el instanceof NodeList || Array.isArray(el)) {
         for (var i = 0, len = el.length; i < len; ++i) {
-          fn($(el[i]), i); // Оборачиваем каждый элемент в $ для доступа к кастомным методам
+          fn($(el[i]), i);
         }
-      } else if (el) { // Если это одиночный элемент
+      } else if (el) {
         fn($(el), 0);
       }
     };
 
     el.getClasses = function(){
-      // Проверка на существование getAttribute
       return this.getAttribute && this.getAttribute('class') ? this.getAttribute('class').split(/\s+/) : [];
     };
 
     el.addClass = function(name){
-      if (!this.classList) return; // Защита для старых браузеров или не-элементов
+      if (!this.classList) return;
       this.classList.add(name);
     };
 
     el.removeClass = function(name){
-      if (!this.classList) return; // Защита
+      if (!this.classList) return;
       this.classList.remove(name);
     };
 
@@ -67,10 +60,9 @@ function $(id){
 
 function search() {
   var str = $('search').value.toLowerCase().trim();
-  var links = $('files').all('a.project-card'); // Ищем только карточки проектов
+  var links = $('files').all('a.project-card');
 
   links.each(function(linkCard){
-    // Текст для поиска берем из имени, описания
     var cardName = linkCard.querySelector('.name') ? linkCard.querySelector('.name').textContent.toLowerCase() : '';
     var cardDescription = linkCard.querySelector('.description') ? linkCard.querySelector('.description').textContent.toLowerCase() : '';
     var cardTitle = linkCard.title ? linkCard.title.toLowerCase() : '';
@@ -87,29 +79,13 @@ function search() {
 
 $(window).on('content loaded', function(){
   var searchInput = $('search');
-  if (searchInput && searchInput.on) { // Проверяем, что searchInput существует и имеет метод on
+  if (searchInput && searchInput.on) {
       searchInput.on('keyup', search);
-      searchInput.on('input', search); // Для случаев вставки текста мышью
+      searchInput.on('input', search);
   }
 
-  // Установка текущего года в футере
   const currentYearSpan = document.getElementById('currentYear');
   if (currentYearSpan) {
       currentYearSpan.textContent = new Date().getFullYear();
   }
 });
-
-// Если есть пустые теги span.date, можно добавить текст-заглушку через JS,
-// но лучше это сделать через CSS :empty псевдокласс (что я и сделал в CSS)
-/*
-document.addEventListener('DOMContentLoaded', () => {
-    const dateSpans = document.querySelectorAll('#files .project-card .date');
-    dateSpans.forEach(span => {
-        if (span.textContent.trim() === '') {
-            // span.textContent = 'Дата не указана';
-            // span.style.fontStyle = 'italic';
-            // span.style.color = '#666'; // Сделать менее заметным
-        }
-    });
-});
-*/
