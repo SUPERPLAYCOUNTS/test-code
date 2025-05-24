@@ -1,258 +1,200 @@
-*{
+/* assets/css/style.css */
+@font-face {
+  font-family: 'Fontsite'; /* Custom name for Bebas Neue */
+  src: url('https://superplaycounts.github.io/fonts/Bebas-Neue.ttf'); /* Adjust path if your font is located elsewhere */
+}
+
+* {
   margin: 0;
   padding: 0;
-  outline: 0;
-}
-body{
-  padding: 80px 100px;
-  font: 13px "Helvetica Neue", "Lucida Grande", "Arial";
-  background: #ECE9E9 -webkit-linear-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ECE9E9));
-  background: #ECE9E9 -moz-linear-gradient(top, #fff, #ECE9E9);
-  background-repeat: no-repeat;
-  color: #555;
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3{
-  font-size: 22px;
-  color: #343434;
-}
-h1 em, h2 em{
-  padding: 0 5px;
-  font-weight: normal;
-}
-h1{
-  font-size: 60px;
-}
-h2{
-  margin-top: 10px;
-}
-h3{
-  margin: 5px 0 10px 0;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #eee;
-  font-size: 18px;
-}
-ul li{
-  list-style: none;
-}
-ul li:hover{
-  cursor: pointer;
-  color: #2e2e2e;
-}
-ul li .path{
-  padding-left: 5px;
-  font-weight: bold;
-}
-ul li .line{
-  padding-right: 5px;
-  font-style: italic;
-}
-ul li:first-child .path{
-  padding-left: 0;
-}
-p{
-  line-height: 1.5;
-}
-a{
-  color: #555;
-  text-decoration: none;
-}
-a:hover{
-  color: #303030;
-}
-#stacktrace{
-  margin-top: 15px;
-}
-.directory h1{
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-ul#files{
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-ul#files li{
-  float: left;
-  width: 30%;
-  line-height: 25px;
-  margin: 1px;
-}
-ul#files li a{
-  display: block;
-  height: 25px;
-  border: 1px solid transparent;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-ul#files li a:focus, ul#files li a:hover{
-  background: rgba(255,255,255,0.65);
-  border: 1px solid #ececec;
-}
-ul#files li a.highlight{
-  -webkit-transition: background .4s ease-in-out;
-  background: #ffff4f;
-  border-color: #E9DC51;
-}
-#search{
-  display: block;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  width: 90px;
-  -webkit-transition: width ease 0.2s, opacity ease 0.4s;
-  -moz-transition: width ease 0.2s, opacity ease 0.4s;
-  -webkit-border-radius: 32px;
-  -moz-border-radius: 32px;
-  -webkit-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.25), inset 0px 1px 3px rgba(0, 0, 0, 0.7), 0px 1px 0px rgba(255, 255, 255, 0.03);
-  -moz-box-shadow: inset 0px 0px 3px rgba(0, 0, 0, 0.25), inset 0px 1px 3px rgba(0, 0, 0, 0.7), 0px 1px 0px rgba(255, 255, 255, 0.03);
-  -webkit-font-smoothing: antialiased;
-  text-align: left;
-  font: 13px "Helvetica Neue", Arial, sans-serif;
-  padding: 4px 10px;
-  border: none;
-  background: transparent;
-  margin-bottom: 0;
-  outline: none;
-  opacity: 0.7;
-  color: #888;
-}
-#search:focus{
-  width: 120px;
-  opacity: 1.0;
+  box-sizing: border-box;
+  font-family: 'Fontsite', cursive; /* Global font application */
 }
 
-#files span{
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-indent: 10px;
-}
-#files .name{
-  background-repeat: no-repeat;
-}
-#files .icon .name{
-  text-indent: 28px;
+body {
+  background-color: #f0f2f5; /* A light grey for the page background */
+  color: #333;
+  line-height: 1.6;
 }
 
-.view-tiles .name{
-  width: 100%;
-  background-position: 8px 5px;
-}
-.view-tiles .size, .view-tiles .date{
-  display: none;
-}
-ul#files.view-details li{
-  float: none;
-  display: block;
+.container {
   width: 90%;
-}
-ul#files.view-details li.header{
-  height: 25px;
-  background: #000;
-  color: #fff;
-  font-weight: bold;
-}
-.view-details .header{
-  border-radius: 5px;
-}
-.view-details .name{
-  width: 60%;
-  background-position: 8px 5px;
-}
-.view-details .size{
-  width: 10%;
-}
-.view-details .date{
-  width: 30%;
-}
-.view-details .size, .view-details .date{
-  text-align: right;
-  direction: rtl;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0;
 }
 
-/* Mobile */
-@media (max-width: 768px){
-  body{
-    font-size: 13px;
-    line-height: 16px;
-    padding: 0;
+/* Header Styles */
+header {
+  background-color: #ffffff; /* White background for header */
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 a {
+  font-size: 2.8rem; /* Bebas Neue looks good large */
+  color: #2c3e50; /* Dark blue-grey for title */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px; /* Adjust spacing for Bebas Neue */
+}
+
+header h1 a i {
+  margin-right: 12px;
+  color: #3498db; /* Blue accent for icon */
+}
+
+header input[type="text"] {
+  padding: 12px 18px;
+  border: 1px solid #ccc;
+  border-radius: 25px; /* Rounded search bar */
+  width: 300px;
+  font-family: 'Roboto', sans-serif; /* Using Roboto for input field for better readability */
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+header input[type="text"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
+  outline: none;
+}
+
+/* Main Content Styles */
+main .intro-text {
+  text-align: center;
+  font-size: 1.6rem; /* Bebas Neue for intro text */
+  color: #4a4a4a;
+  margin: 40px auto;
+  max-width: 750px;
+  letter-spacing: 0.8px;
+  line-height: 1.5; /* Improved line height for Bebas Neue */
+}
+
+/* Project Grid Styles */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.project-card .card-icon {
+  font-size: 2.8rem;
+  color: #3498db; /* Blue accent for icons */
+  margin-bottom: 18px;
+  text-align: center;
+}
+.project-card .card-icon i {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.project-card .name {
+  font-size: 2rem; /* Bebas Neue for project names */
+  color: #2c3e50;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  word-break: break-word;
+  line-height: 1.3;
+}
+
+.project-card .description {
+  font-size: 1rem;
+  color: #555;
+  flex-grow: 1;
+  text-align: center;
+  font-family: 'Roboto', sans-serif; /* Roboto for descriptions for better readability */
+  line-height: 1.6;
+  /* If you strictly want Bebas Neue for descriptions, uncomment the line below and comment out the Roboto line: */
+  /* font-family: 'Fontsite', cursive; letter-spacing: 0.3px; */
+}
+
+/* Search Highlight (used by script.js) */
+.project-card.highlight {
+  border-left: 6px solid #3498db;
+  background-color: #e9f5fd; /* Light blue tint for highlighted card */
+}
+
+/* Footer Styles */
+footer {
+  background-color: #2c3e50; /* Dark footer background */
+  color: #ecf0f1; /* Light text color for footer */
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 1rem; /* Bebas Neue for footer text */
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header .container {
+      flex-direction: column;
+      gap: 20px;
   }
-  #search{
-    position: static;
-    width: 100%;
-    font-size: 2em;
-    line-height: 1.8em;
-    text-indent: 10px;
-    border: 0;
-    border-radius: 0;
-    padding: 10px 0;
-    margin: 0;
+  header input[type="text"] {
+      width: 90%;
+      max-width: 400px; /* Limit width on mobile */
   }
-  #search:focus{
-    width: 100%;
-    border: 0;
-    opacity: 1;
+  .project-grid {
+      grid-template-columns: 1fr; /* Single column on smaller screens */
+      gap: 20px;
   }
-  .directory h1{
-    font-size: 2em;
-    line-height: 1.5em;
-    color: #fff;
-    background: #000;
-    padding: 15px 10px;
-    margin: 0;
+  main .intro-text {
+      font-size: 1.4rem;
   }
-  ul#files{
-    border-top: 1px solid #cacaca;
+  header h1 a {
+      font-size: 2.2rem;
   }
-  ul#files li{
-    float: none;
-    width: auto !important;
-    display: block;
-    border-bottom: 1px solid #cacaca;
-    font-size: 2em;
-    line-height: 1.2em;
-    text-indent: 0;
-    margin: 0;
+  .project-card .name {
+      font-size: 1.8rem;
   }
-  ul#files li:nth-child(odd){
-    background: #e0e0e0;
+}
+
+@media (max-width: 480px) {
+  .project-card .name {
+      font-size: 1.6rem;
   }
-  ul#files li a{
-    height: auto;
-    border: 0;
-    border-radius: 0;
-    padding: 15px 10px;
+  .project-card .description {
+      font-size: 0.95rem;
   }
-  ul#files li a:focus, ul#files li a:hover{
-    border: 0;
+  main .intro-text {
+      font-size: 1.2rem;
   }
-  #files .header, #files .size, #files .date{
-    display: none !important;
-  }
-  #files .name{
-    float: none;
-    display: inline-block;
-    width: 100%;
-    text-indent: 0;
-    background-position: 0 50%;
-  }
-  #files .icon .name{
-    text-indent: 41px;
-  }
-  #files .icon-directory .name{
-    background-image: url(assets/img/folder.png);
-  }
-  #files .icon-application-zip .name{
-    background-image: url(assets/img/zip.png);
-  }
-  #files .icon-application-json .name{
-    background-image: url(assets/img/json.png);
-  }
-  #files .icon-text .name{
-    background-image: url(assets/img/txt.png);
+  header h1 a {
+      font-size: 2rem;
   }
 }
