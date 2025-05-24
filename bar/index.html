@@ -6,150 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Progress Bar</title>
-  <style>
-    * {
-      color: white;
-    }
-
-    body {
-      background-color: #333;
-    }
-
-    .content {
-      text-align: center;
-      font-size: 3vh;
-    }
-
-    .progress-bar {
-      width: 98%;
-      height: 20px;
-      background-color: rgba(0, 0, 0, 0.2);
-      margin-top: 5%;
-    }
-    .progress {
-      width: 0%;
-      height: 100%;
-      background-color: rgba(255, 127, 0, 0.5);
-    }
-    span {
-      font-weight: 600;
-    }
-    .table_title {
-      text-align: left;
-      left: 5%;
-      font-size: 3.5vh;
-      font-weight: 500;
-    }
-    tr:nth-child(even) {
-      background-color: #005;
-    }
-    tr:nth-child(odd) {
-      background-color: #446;
-    }
-    table, th, td {
-      font-size: 2.5vh;
-      border: 1px solid white;
-      border-collapse: collapse;
-    }
-    th, td {
-      width: 15%;
-      text-align: left;
-      padding: 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="content">
-    <div class="progress-bar">
-      <div class="progress"></div>
-    </div>
-    <div>This progress bar started on <span class="date" ts="2024-01-01T00:00:00Z">01 Jan 2024</span> and will end on
-      <span class="date" ts="2024-06-01T00:00:00Z">01 Jun 2024</span>.</div>
-    <div>Started <span id="started">Loading...</span> ago</div>
-    <div><span id="timeLeft">Loading...</span> left</div>
-    <div><span id="progress">Loading...</span>% complete</div>
+  <div class="container">
+    <div class="content">
+      <div class="progress-bar-container">
+        <div class="progress"></div>
+      </div>
+      <div class="info-text">This progress bar started on <span id="startDate" class="date" data-timestamp="2020-01-01T00:00:00Z">01 Jan 2020</span> and will end on <span id="endDate" class="date" data-timestamp="2030-01-01T00:00:00Z">01 Jun 2030</span>.</div>
+      <div class="info-text">Started: <span id="started">Loading...</span> ago</div>
+      <div class="info-text">Time Left: <span id="timeLeft">Loading...</span></div>
+      <div class="info-text"><span id="progress">Loading...</span>% Complete</div>
 
-    <h2 class="table_title">Table of Milestones</h2>
-    <center>
-      <table>
-        <tr>
-          <th style="width: 8%">Percent</th>
-          <th style="width: 25%">Local Time</th>
-        </tr>
+      <h2 class="table_title">Table of Milestones</h2>
+      <table class="milestones-table">
+        <thead>
+          <tr>
+            <th>Percent</th>
+            <th>Local Time</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
       </table>
-    </center>
+    </div>
   </div>
-  <div id="MIXADV_9822" class="MIXADVERT_NET"></div>
+  <script src="script.js"></script>
 </body>
-<script>
-const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const shortMonths = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const start = new Date("2024-01-01T00:00:00").getTime();
-const end = new Date("2024-06-01T00:00:00").getTime();
-
-for (let i = 0; i < 101; i++) {
-    const row = document.createElement("tr");
-    const percentCell = document.createElement("td");
-    percentCell.innerText = i + "%";
-    row.appendChild(percentCell);
-
-    const dateCell = document.createElement("td");
-    const date = new Date(start + (end - start) * i / 100);
-    dateCell.innerText = `${weekDays[date.getDay()]} ${date.getDate()} ${shortMonths[date.getMonth()]} ${date.getFullYear()} ${twoDigits(date.getHours())}:${twoDigits(date.getMinutes())}:${twoDigits(date.getSeconds())}`;
-    row.appendChild(dateCell);
-
-    document.querySelector("table").appendChild(row);
-}
-
-setInterval(() => {
-  const elapsed = Date.now() - start;
-  const total = end - start;
-  let percentComplete;
-
-  if (elapsed >= total) {
-    percentComplete = 1;
-    document.querySelector("#timeLeft").innerText = "0 seconds";
-  } else {
-    percentComplete = elapsed / total;
-    document.querySelector("#timeLeft").innerText = getDuration(Date.now(), end + 1000);
-  }
-
-  document.querySelector("#started").innerText = getDuration(start, Date.now());
-  document.querySelector(".progress").style.width = `${percentComplete * 100}%`;
-  document.querySelector("#progress").innerText = (percentComplete * 100).toFixed(8);
-}, 100);
-
-function twoDigits(num) {
-  return (num < 10 ? "0" : "") + num;
-}
-
-function getDuration(start, end) {
-  const seconds = (end - start) / 1000;
-  const minutes = Math.floor(seconds / 60);
-  const hours = Math.floor(minutes / 60);
-  const days = Math.floor(hours / 24);
-  const duration = [];
-
-  if (days > 0) {
-    duration.push(`${days} days`);
-  }
-
-  if (hours % 24 > 0) {
-    duration.push(`${hours % 24} hours`);
-  }
-
-  if (minutes % 60 > 0) {
-    duration.push(`${minutes % 60} minutes`);
-  }
-
-  if (seconds % 60 > 0) {
-    duration.push(`${(seconds % 60).toFixed(2)} seconds`);
-  }
-
-  return duration.join(", ");
-}
-</script>
-<script type="text/javascript" src="https://m.mixadvert.com/show/?id=9822" async></script>
-
 </html>
