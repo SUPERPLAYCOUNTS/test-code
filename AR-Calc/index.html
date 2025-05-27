@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspect Ratio Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aspect Ratio Calculator</h1>
+
+        <label for="formatSelect">Select Format:</label>
+        <select id="formatSelect">
+            <option value="16:9">16:9 (Standard)</option>
+            <option value="19.5:9">19.5:9 (Cinematic)</option>
+            <option value="4:3">4:3 (Old TV/Monitor)</option>
+            <option value="3:2">3:2 (Classic Photo)</option>
+            <option value="1:1">1:1 (Square)</option>
+        </select>
+
+        <label for="heightInput">Enter Known Dimension (Height or Width):</label>
+        <input type="number" id="dimensionInput" placeholder="e.g., 720 or 1920">
+
+        <label for="dimensionType">Is this value Height or Width?</label>
+        <select id="dimensionType">
+            <option value="height">Height</option>
+            <option value="width">Width</option>
+        </select>
+
+        <div class="output" id="outputText">Dimensions will appear here...</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
