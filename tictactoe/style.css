@@ -1,0 +1,177 @@
+:root {
+    --primary-color: #6a11cb;
+    --secondary-color: #2575fc;
+    --accent-color: #ff6b6b;
+    --light-color: #f4f4f9;
+    --dark-color: #333;
+    --cell-bg: #fff;
+    /* --cell-border: #e0e0e0; */
+    --x-color: #ff4757;
+    --o-color: #1e90ff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    margin: 0;
+    color: var(--dark-color);
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.container {
+    background-color: var(--light-color);
+    padding: clamp(15px, 4vw, 30px) clamp(15px, 4vw, 40px);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90vw;
+    max-width: 420px;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: clamp(15px, 4vw, 25px);
+    font-size: clamp(1.8em, 5vw, 2.5em);
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--secondary-color);
+    margin-bottom: clamp(10px, 3vw, 20px);
+    font-size: clamp(1.3em, 4vw, 1.8em);
+    font-weight: 600;
+}
+
+#setup-screen .choice-group {
+    margin-bottom: clamp(15px, 3vw, 20px);
+    text-align: left;
+}
+
+#setup-screen label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: var(--dark-color);
+    font-size: clamp(0.9em, 2.5vw, 1em);
+}
+
+#setup-screen .symbol-btn,
+#setup-screen select,
+#start-game-btn {
+    padding: clamp(10px, 2.5vw, 12px) clamp(15px, 3vw, 20px);
+    border-radius: 8px;
+    border: none;
+    font-size: clamp(0.9em, 2.8vw, 1em);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#setup-screen .symbol-btn {
+    background-color: var(--cell-border);
+    color: var(--dark-color);
+    margin-right: 10px;
+}
+
+#setup-screen .symbol-btn.selected {
+    background-color: var(--accent-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+#setup-screen select {
+    width: 100%;
+    background-color: white;
+    border: 1px solid var(--cell-border);
+    color: var(--dark-color);
+    box-sizing: border-box;
+}
+
+#start-game-btn,
+#reset-game-btn,
+#new-setup-btn {
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+#reset-game-btn {
+    background-color: #6A0DAD;
+}
+
+#new-setup-btn {
+    background-color: #FA8072;
+}
+
+#start-game-btn {
+    background-color: var(--primary-color);
+}
+
+
+#start-game-btn:hover,
+#reset-game-btn:hover,
+#new-setup-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+
+#status-message {
+    margin-bottom: clamp(15px, 3vw, 20px);
+    font-size: clamp(1em, 3.5vw, 1.2em);
+    font-weight: 600;
+    color: var(--secondary-color);
+    min-height: 1.5em;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: clamp(5px, 2vw, 10px);
+
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto clamp(15px, 4vw, 25px) auto;
+}
+
+.cell {
+    background-color: var(--cell-bg);
+    border-radius: clamp(5px, 2vw, 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2.5em, 12vw, 4em);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 clamp(1px, 0.5vw, 2px) clamp(2px, 1vw, 5px) rgba(0, 0, 0, 0.08);
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+
+.cell.x {
+    color: var(--x-color);
+}
+
+.cell.o {
+    color: var(--o-color);
+}
+
+.cell.winner {
+    background-color: #a7f3d0;
+}
+
+.hidden {
+    display: none !important;
+}
