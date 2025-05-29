@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriber Count</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="odometer-theme-default.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img id="main-logo" src="https://superplaycounts.github.io/img/123.png">
+        </div>
+        <h1 id="main-site-name">Name</h1>
+        <p class="subtitle">YouTube Subscribers Counting</p>
+        <div class="counter-box">
+            <div id="odometer" class="odometer">0</div>
+        </div>
+    </div>
+
+    <button id="settings-btn">⚙️ Settings</button>
+
+    <div id="settings-panel-overlay" class="settings-panel-overlay">
+        <div class="settings-panel-content">
+            <button id="settings-close-btn">×</button>
+            <h2>Settings</h2>
+
+            <fieldset id="appearance-fieldset">
+                <legend>Appearance</legend>
+                <small class="api-disabled-message" style="display:none;">Disable API Updates to edit these settings
+                    manually.</small>
+                <div><label for="setting-site-name">Site Name:</label><input type="text" id="setting-site-name"></div>
+                <div><label for="setting-logo-url">Logo URL:</label><input type="text" id="setting-logo-url"
+                        placeholder="https://example.com/logo.png"></div>
+                <div><label for="setting-logo-file">Or Upload Logo File:</label><input type="file"
+                        id="setting-logo-file" accept="image/*"><img id="setting-logo-preview" src="#"
+                        alt="Logo Preview"></div>
+            </fieldset>
+
+            <fieldset id="manual-counter-fieldset">
+                <legend>Counter (Manual Settings)</legend>
+                <small class="api-disabled-message" style="display:none;">Disable API Updates to use these manual
+                    counter settings.</small>
+                <small>These settings are used if API Updates are disabled.</small>
+                <div><label for="setting-initial-count">Initial Count:</label><input type="number"
+                        id="setting-initial-count" value="0"></div>
+                <div><label for="setting-increment-type">Increment Type:</label><select id="setting-increment-type">
+                        <option value="uniform">Uniform</option>
+                        <option value="gaussian">Gaussian</option>
+                        <option value="custom">Custom</option>
+                    </select></div>
+                <div id="settings-uniform-fields" class="settings-type-fields">
+                    <h4>Uniform Settings</h4>
+                    <div><label for="setting-uniform-min">Minimum Rate:</label><input type="number"
+                            id="setting-uniform-min" value="0"></div>
+                    <div><label for="setting-uniform-max">Maximum Rate:</label><input type="number"
+                            id="setting-uniform-max" value="0"></div>
+                    <div><label for="setting-uniform-interval">Increment Interval (seconds):</label><input type="number"
+                            id="setting-uniform-interval" value="2" min="1"></div>
+                </div>
+                <div id="settings-gaussian-fields" class="settings-type-fields" style="display:none;">
+                    <h4>Gaussian Settings</h4>
+                    <div><label for="setting-gaussian-mean">Mean Rate:</label><input type="number"
+                            id="setting-gaussian-mean" value="0"></div>
+                    <div><label for="setting-gaussian-stddev">Standard Deviation:</label><input type="number"
+                            id="setting-gaussian-stddev" value="0"></div>
+                    <div><label for="setting-gaussian-interval">Increment Interval (seconds):</label><input
+                            type="number" id="setting-gaussian-interval" value="2" min="1"></div>
+                </div>
+                <div id="settings-custom-fields" class="settings-type-fields" style="display:none;">
+                    <h4>Custom Settings</h4>
+                    <div><label for="setting-custom-distribution">Custom Distribution
+                            (Min,Max,Weight...):</label><textarea id="setting-custom-distribution" rows="3"
+                            placeholder="e.g., 1,5,10 6,10,5"></textarea></div>
+                    <div><label for="setting-custom-interval">Increment Interval (seconds):</label><input type="number"
+                            id="setting-custom-interval" value="2" min="1"></div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>API Update Settings</legend>
+                <div><input type="checkbox" id="setting-api-enabled"><label for="setting-api-enabled">Enable API
+                        Updates</label></div>
+                <div id="api-options-container" style="display:none;">
+                    <div><label for="setting-api-poll-interval">API Poll Interval (seconds):</label><input type="number"
+                            id="setting-api-poll-interval" value="60" min="10"></div>
+                    <div><label for="setting-api-preset">API Source Preset:</label><select id="setting-api-preset">
+                            <option value="superplaycounts">SUPERPLAYCOUNTS API</option>
+                            <option value="google">Google API (Need a key)</option>
+                            <option value="custom">Custom API</option>
+                        </select></div>
+                    <div id="api-superplaycounts-fields" class="api-preset-fields">
+                        <h4>SUPERPLAYCOUNTS API Settings</h4>
+                        <div><label for="setting-api-spc-channel-id">Channel ID:</label><input type="text"
+                                id="setting-api-spc-channel-id" placeholder="Enter channel ID"></div>
+                    </div>
+                    <div id="api-google-fields" class="api-preset-fields" style="display:none;">
+                        <h4>Google API Settings (YouTube Data API v3)</h4>
+                        <div><label for="setting-api-google-key">API Key:</label><input type="password"
+                                id="setting-api-google-key" placeholder="Enter your Google API Key"><small
+                                class="warning-message">CRITICAL: For personal/local use only. Do NOT expose this key on
+                                a public website!</small></div>
+                        <div><label for="setting-api-google-channel-id">YouTube Channel ID:</label><input type="text"
+                                id="setting-api-google-channel-id"
+                                placeholder="Enter YouTube Channel ID (e.g., UC.....)"></div>
+                    </div>
+                    <div id="api-custom-fields" class="api-preset-fields" style="display:none;">
+                        <h4>Custom API Settings</h4>
+                        <div><label for="setting-api-custom-url">API Endpoint URL:</label><input type="text"
+                                id="setting-api-custom-url"
+                                placeholder="e.g., https://api.example.com/data?id={id}"><small>Include keys/IDs in URL
+                                if needed.</small></div>
+                        <div><label for="setting-api-custom-path-logo">Path to Logo URL (e.g.,
+                                data.image_url):</label><input type="text" id="setting-api-custom-path-logo"
+                                placeholder="data.image_url"></div>
+                        <div><label for="setting-api-custom-path-name">Path to Site Name (e.g.,
+                                data.channel_name):</label><input type="text" id="setting-api-custom-path-name"
+                                placeholder="data.channel_name"></div>
+                        <div><label for="setting-api-custom-path-counter">Path to Counter Value (e.g.,
+                                data.sub_count):</label><input type="text" id="setting-api-custom-path-counter"
+                                placeholder="data.sub_count"></div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="settings-actions">
+                <button id="settings-reset-btn">Reset All Settings</button>
+                <div class="main-actions">
+                    <button id="settings-save-btn">Save Changes</button>
+                    <button id="settings-exit-btn">Exit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="odometer.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
