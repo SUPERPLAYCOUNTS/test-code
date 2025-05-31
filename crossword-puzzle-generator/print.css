@@ -1,0 +1,132 @@
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        font-size: 10pt;
+    }
+
+    .container {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    #input-section,
+    .print-controls,
+    #message-area,
+    footer {
+        display: none !important;
+    }
+
+    #output-section {
+        display: block !important;
+    }
+
+    .printing-crossword #printable-answers-area {
+        display: none !important;
+    }
+
+    .printing-answers #printable-crossword-area {
+        display: none !important;
+    }
+
+    .printing-answers #printable-answers-area {
+        display: block !important;
+    }
+
+    h1,
+    h2,
+    h3 {
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        page-break-after: avoid;
+        font-size: 12pt;
+        color: #000 !important;
+    }
+
+    h1 {
+        font-size: 14pt;
+        text-align: center;
+    }
+
+
+    #crossword-grid-container,
+    #answer-grid-container {
+        border: 2px solid #000 !important;
+        margin: 10mm auto;
+        page-break-inside: avoid;
+    }
+
+    .grid-cell {
+        width: 7mm;
+        height: 7mm;
+        font-size: 12pt;
+        border: 1px solid #777 !important;
+        color: #000 !important;
+        box-sizing: border-box !important;
+        background-color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .grid-cell.filled {}
+
+    .grid-cell.empty-block {
+        background-color: #000 !important;
+        border: 1px solid #000 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .grid-cell.empty-block .clue-number {
+        display: none !important;
+    }
+
+    .grid-cell .clue-number {
+        position: absolute !important;
+        top: 0.5mm !important;
+        left: 0.5mm !important;
+        font-size: 6pt !important;
+        font-weight: bold !important;
+        color: #000 !important;
+        line-height: 1 !important;
+        z-index: 10 !important;
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .clues-container {
+        margin-top: 5mm;
+        page-break-before: auto;
+    }
+
+    #clues-across,
+    #clues-down,
+    #clues-across-answers,
+    #clues-down-answers {
+        width: 90%;
+        margin: 0 auto 5mm auto;
+    }
+
+    ol li {
+        font-size: 9pt;
+        margin-bottom: 1mm;
+        color: #000 !important;
+    }
+
+    ol {
+        padding-left: 5mm;
+    }
+}

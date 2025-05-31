@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crossword Puzzle Generator</h1>
+
+        <div id="input-section">
+            <h2>Enter Words and Clues</h2>
+            <p>Format: WORD:Clue (one per line). Words should be uppercase.</p>
+            <textarea id="word-clue-input" rows="10" cols="50" placeholder="APPLE:A common fruit
+BANANA:A yellow fruit
+CODE:What programmers write"></textarea>
+            <button id="generate-btn">Generate Crossword</button>
+        </div>
+
+        <div id="output-section" style="display:none;">
+            <div class="print-controls">
+                <button id="print-crossword-btn">Print Crossword & Clues</button>
+                <button id="print-answers-btn">Print Answer Key</button>
+            </div>
+
+            <div id="printable-crossword-area">
+                <h2>Crossword Puzzle</h2>
+                <div id="crossword-grid-container">
+                </div>
+                <div class="clues-container">
+                    <div id="clues-across">
+                        <h3>Across</h3>
+                        <ol id="clues-across-list"></ol>
+                    </div>
+                    <div id="clues-down">
+                        <h3>Down</h3>
+                        <ol id="clues-down-list"></ol>
+                    </div>
+                </div>
+            </div>
+
+            <div id="printable-answers-area" style="display:none;">
+                <h2>Answer Key</h2>
+                <div id="answer-grid-container">
+                </div>
+                <div class="clues-container">
+                    <div id="clues-across-answers">
+                        <h3>Across</h3>
+                        <ol id="clues-across-list-answers"></ol>
+                    </div>
+                    <div id="clues-down-answers">
+                        <h3>Down</h3>
+                        <ol id="clues-down-list-answers"></ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p id="message-area" class="message"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
