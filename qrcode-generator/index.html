@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        
+        <div class="form-group">
+            <label for="urlInput">Enter URL or Text:</label>
+            <input type="text" id="urlInput" placeholder="e.g., https://example.com or any text">
+        </div>
+
+        <div class="form-group">
+            <label for="dotsStyle">Dot Style:</label>
+            <select id="dotsStyle">
+                <option value="square" selected>Square</option>
+                <option value="dots">Dots</option>
+                <option value="rounded">Rounded</option>
+                <option value="classy">Classy</option>
+                <option value="classy-rounded">Classy Rounded</option>
+                <option value="extra-rounded">Extra Rounded</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="foregroundColor">Foreground Color:</label>
+            <input type="color" id="foregroundColor" value="#000000">
+        </div>
+
+        <div class="form-group">
+            <label for="backgroundColor">Background Color:</label>
+            <input type="color" id="backgroundColor" value="#ffffff">
+        </div>
+
+        <div class="form-group">
+            <label for="useGradient">Use Gradient for Foreground:</label>
+            <input type="checkbox" id="useGradient">
+        </div>
+
+        <div id="gradientOptions" class="form-group-multiple hidden">
+            <div class="form-group">
+                <label for="gradientStartColor">Gradient Start Color:</label>
+                <input type="color" id="gradientStartColor" value="#000000">
+            </div>
+            <div class="form-group">
+                <label for="gradientEndColor">Gradient End Color:</label>
+                <input type="color" id="gradientEndColor" value="#ff0000">
+            </div>
+             <div class="form-group">
+                <label for="gradientDirection">Gradient Direction:</label>
+                <select id="gradientDirection">
+                    <option value="horizontal">Horizontal (Left to Right)</option>
+                    <option value="vertical">Vertical (Top to Bottom)</option>
+                    <option value="diagonal-tl-br">Diagonal (Top-Left to Bottom-Right)</option>
+                    <option value="diagonal-tr-bl">Diagonal (Top-Right to Bottom-Left)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="logoInput">Embed Logo (Optional):</label>
+            <input type="file" id="logoInput" accept="image/png, image/jpeg, image/gif, image/svg+xml">
+            <div id="logoPreviewContainer" class="hidden">
+                <img id="logoPreview" src="#" alt="Logo Preview">
+                <button id="deleteLogoButton" title="Remove logo">🗑</button>
+            </div>
+        </div>
+        
+        <button id="generateButton">Generate QR Code</button>
+        
+        <div id="qrcodeOutput"></div>
+        <a id="downloadButton" class="hidden">Download QR Code</a>
+    </div>
+    <script src="qr-code-styling.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

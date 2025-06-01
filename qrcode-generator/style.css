@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --success-color: #28a745;
+    --success-hover-color: #218838;
+    --light-gray: #f0f0f0;
+    --white: #ffffff;
+    --dark-gray: #333333;
+    --border-color: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--light-gray);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    color: var(--dark-gray);
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group-multiple {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--dark-gray);
+}
+
+input[type="text"],
+input[type="color"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input[type="color"] {
+    height: 40px;
+    padding: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#logoPreviewContainer {
+    position: relative;
+    display: inline-block;
+    margin-top: 8px;
+    line-height: 0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#logoPreview {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+#deleteLogoButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(40, 40, 40, 0.75);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    padding: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#logoPreviewContainer:hover #deleteLogoButton {
+    opacity: 1;
+}
+
+button,
+#downloadButton {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    text-decoration: none;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#generateButton {
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#generateButton:hover:not(:disabled) {
+    background-color: var(--primary-hover-color);
+}
+
+#downloadButton {
+    background-color: var(--success-color);
+    margin-top: 20px;
+}
+
+#downloadButton:hover {
+    background-color: var(--success-hover-color);
+}
+
+#qrcodeOutput {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+#qrcodeOutput>* {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+.hidden {
+    display: none !important;
+}
