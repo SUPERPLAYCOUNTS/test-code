@@ -284,7 +284,7 @@ async function fetchApiData() {
                 const spcChannelId = apiSettings.spc.channelId;
                 if (!spcChannelId) { console.warn("SPC API: Channel ID missing."); return; }
                 apiUrl = `https://api.superplaycounts.pp.ua/api/youtube-channel-counter/user/${spcChannelId}`;
-                namePath = "user.0.count"; logoPath = "user.1.count"; counterPath = "counts.0.count";
+                namePath = "statistics.0.user.0.count"; logoPath = "statistics.0.user.1.count"; counterPath = "statistics.0.counts.0.count";
                 break;
             case 'google':
                 const googleApiKey = apiSettings.google.apiKey;
