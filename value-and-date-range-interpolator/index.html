@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value and Date Range Interpolator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-sliders-h"></i> Value and Date Range Interpolator</h1>
+            <p>Easily find an intermediate value and date within specified start/end points using a simple percentage slider. Ideal for visualizing linear progressions.</p>
+        </header>
+
+        <main class="controls-output-wrapper">
+            <section class="input-controls card">
+                <h2><i class="fas fa-edit"></i> Input Data</h2>
+                <div class="input-group">
+                    <label for="startValue">Start Value:</label>
+                    <input type="number" id="startValue" step="0.01" placeholder="e.g., 67.89">
+                </div>
+                <div class="input-group">
+                    <label for="endValue">End Value:</label>
+                    <input type="number" id="endValue" step="0.01" placeholder="e.g., 87.42">
+                </div>
+                <div class="input-group">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate">
+                </div>
+                <div class="input-group">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate">
+                </div>
+            </section>
+
+            <section class="slider-control card">
+                <h2><i class="fas fa-percentage"></i> Percentage Slider</h2>
+                <input type="range" id="slider" min="0" max="100" value="0">
+                <div class="slider-value-display">
+                    <span id="sliderValuePercentage">0</span>%
+                </div>
+            </section>
+
+            <section class="output-display card">
+                <h2><i class="fas fa-calculator"></i> Result</h2>
+                <div class="output-item">
+                    <span class="output-label">Current Value:</span>
+                    <span id="currentValue" class="output-value">0.00</span>
+                </div>
+                <div class="output-item">
+                    <span class="output-label">Current Date:</span>
+                    <span id="currentDate" class="output-value">-</span>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
