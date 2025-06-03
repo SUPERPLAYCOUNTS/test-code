@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Recorder PRO</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1131093589390960"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Screen Recorder PRO</h1>
+            <p class="tagline">Simple & Powerful Screen Recording</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <div class="control-group">
+                    <label for="resolution">Select Resolution:</label>
+                    <select id="resolution">
+                        <option value="240p">240p (SD): 426 x 240</option>
+                        <option value="360p">360p (SD): 640 x 360</option>
+                        <option value="480p">480p (SD): 854 x 480</option>
+                        <option value="720p" selected>720p (HD): 1280 x 720</option>
+                        <option value="1080p">1080p (Full HD): 1920 x 1080</option>
+                        <option value="1440p">1440p (2K/QHD): 2560 x 1440</option>
+                        <option value="2160p">2160p (4K/UHD): 3840 x 2160</option>
+                        <option value="4320p">4320p (8K/FUHD): 7680 x 4320</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="audioOptions">Audio Options:</label>
+                    <select id="audioOptions">
+                        <option value="none">Screen Only (No Audio)</option>
+                        <option value="mic">Screen + Microphone</option>
+                        <option value="system">Screen + System Audio</option>
+                        <option value="both">Screen + Microphone & System Audio</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="startBtn" class="btn btn-primary">Start Recording</button>
+                <button id="stopBtn" class="btn btn-danger" disabled>Stop Recording</button>
+            </div>
+
+            <p id="status" class="status-message"></p>
+
+            <div class="preview-container">
+                <video id="preview" controls></video>
+            </div>
+
+            <div id="downloadSection" class="download-section">
+                <button id="downloadWebmBtn" class="btn btn-success">Download Video (WebM)</button>
+                <div class="mp4-info">
+                    <p><strong>Need MP4 format?</strong></p>
+                    <p>
+                        Direct MP4 recording in the browser is complex and often unreliable.
+                        For the best quality and compatibility, we record in WebM format.
+                        You can easily convert your WebM recording to MP4 using a free online tool like:
+                        <a href="https://video-converter.com/" target="_blank"
+                            rel="noopener noreferrer">video-converter.com</a>
+                        or other desktop video editing software.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
