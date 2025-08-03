@@ -73,7 +73,7 @@ async function createCard(cardId, colorData, index) {
 
 async function fetchDataAndCreateCards() {
     try {
-        const data = await fetchData('https://color-battles.up.railway.app/api/top');
+        const data = await fetchData('https://c94tmq-3000.csb.app/api/top');
         data.forEach((color, index) => {
             createCard(card_${color.id}, color, index);
         });
@@ -84,3 +84,4 @@ async function fetchDataAndCreateCards() {
 
 fetchDataAndCreateCards();
 setInterval(fetchDataAndCreateCards, 3000);
+
