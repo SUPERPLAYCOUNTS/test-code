@@ -5,6 +5,7 @@
             "columns": [
                 {
                     "lessons": [
+                        { "startTime": "07:40", "endTime": "08:25", "subject": "Religia", "room": "6.12" },
                         { "startTime": "08:30", "endTime": "09:15", "subject": "Biznes i zarządzanie", "room": "4.09" },
                         { "startTime": "09:25", "endTime": "10:10", "subject": "Matematyka", "room": "6.02" },
                         { "startTime": "10:20", "endTime": "11:05", "subject": "Wychowanie fizyczne G1", "room": "Spo2" },
@@ -29,6 +30,54 @@
                         { "startTime": "11:15", "endTime": "12:00", "subject": "Chemia", "room": "6.07" },
                         { "startTime": "12:10", "endTime": "12:55", "subject": "Język niemiecki |G1", "room": "6.14" },
                         { "startTime": "13:10", "endTime": "13:55", "subject": "Informatyka |G1", "room": "4.23" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Środa",
+            "columns": [
+                {
+                    "lessons": [
+                        { "startTime": "10:20", "endTime": "11:05", "subject": "Język polski", "room": "5.19" },
+                        { "startTime": "11:15", "endTime": "12:00", "subject": "Bezpieczeństwo i higiena pracy", "room": "6.02" },
+                        { "startTime": "12:10", "endTime": "12:55", "subject": "Informatyka |G1", "room": "4.23" },
+                        { "startTime": "13:10", "endTime": "13:55", "subject": "Język niemiecki |G1", "room": "6.14" },
+                        { "startTime": "14:05", "endTime": "14:50", "subject": "Język angielski |G1", "room": "6.07" },
+                        { "startTime": "15:00", "endTime": "15:45", "subject": "Język angielski |G1", "room": "6.07" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Czwartek",
+            "columns": [
+                {
+                    "lessons": [
+                        { "startTime": "10:20", "endTime": "11:05", "subject": "Edukacja dla bezpieczeństwa", "room": "6.02" },
+                        { "startTime": "11:15", "endTime": "12:00", "subject": "Historia", "room": "6.09" },
+                        { "startTime": "12:10", "endTime": "12:55", "subject": "Matematyka", "room": "4.09" },
+                        { "startTime": "13:10", "endTime": "13:55", "subject": "Bezpieczeństwo i higiena pracy", "room": "6.02" },
+                        { "startTime": "14:05", "endTime": "14:50", "subject": "Język polski", "room": "5.19" },
+                        { "startTime": "15:00", "endTime": "15:45", "subject": "Fizyka", "room": "6.07" },
+                        { "startTime": "15:55", "endTime": "16:40", "subject": "Systemy operacyjne", "room": "4.07" },
+                        { "startTime": "16:45", "endTime": "17:30", "subject": "Systemy operacyjne", "room": "4.07" },
+                        { "startTime": "17:35", "endTime": "18:20", "subject": "Systemy operacyjne", "room": "4.07" }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Piątek",
+            "columns": [
+                {
+                    "lessons": [
+                        { "startTime": "08:30", "endTime": "09:15", "subject": "Lokalne sieci komputerome", "room": "216" },
+                        { "startTime": "09:25", "endTime": "10:10", "subject": "Lokalne sieci komputerome", "room": "216" },
+                        { "startTime": "10:20", "endTime": "11:05", "subject": "Lokalne sieci komputerome", "room": "216" },
+                        { "startTime": "11:15", "endTime": "12:00", "subject": "Urządzenia techniki komputerowej", "room": "216" },
+                        { "startTime": "12:10", "endTime": "12:55", "subject": "Urządzenia techniki komputerowej", "room": "216" },
+                        { "startTime": "13:10", "endTime": "13:55", "subject": "Urządzenia techniki komputerowej", "room": "216" }
                     ]
                 }
             ]
