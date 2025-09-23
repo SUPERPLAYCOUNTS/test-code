@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const timeColumn = document.getElementById('time-column');
     const scheduleArea = document.getElementById('schedule-area');
     const headerArea = document.getElementById('header-area');
-
+    const printButton = document.getElementById('printButton');
+    const currentLessonInfoContainer = document.getElementById('current-lesson-info');
+    
+    let timetableData = null;
     let START_HOUR = 7;
     let END_HOUR = 21;
 
@@ -29,13 +32,82 @@ document.addEventListener('DOMContentLoaded', function() {
         return (hours * 60) + minutes;
     }
 
+    function updateCurrentLessonInfo() {
+        if (!timetableData) return;
+
+        const now = new Date();
+        const daysOfWeek = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+        const todayName = daysOfWeek[now.getDay()];
+        const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+        const todayData = timetableData.days.find(day => day.name === todayName);
+
+        if (!todayData) {
+            currentLessonInfoContainer.style.display = 'none';
+            return;
+        }
+
+        const allLessonsToday = [];
+        todayData.columns.forEach(col => {
+            col.lessons.forEach(lesson => {
+                allLessonsToday.push({
+                    ...lesson,
+                    startMinutes: timeToMinutes(lesson.startTime),
+                    endMinutes: timeToMinutes(lesson.endTime)
+                });
+            });
+        });
+        
+        allLessonsToday.sort((a, b) => a.startMinutes - b.startMinutes);
+
+        let message = "";
+        let currentLesson = null;
+        let nextLesson = null;
+
+        for (const lesson of allLessonsToday) {
+            if (currentMinutes >= lesson.startMinutes && currentMinutes < lesson.endMinutes) {
+                currentLesson = lesson;
+                break;
+            }
+            if (currentMinutes < lesson.startMinutes && !nextLesson) {
+                nextLesson = lesson;
+            }
+        }
+
+        if (currentLesson) {
+            message = `Teraz lekcja: <strong>${currentLesson.subject}</strong> (${currentLesson.startTime} - ${currentLesson.endTime}). Sala: <strong>${currentLesson.room}</strong>.`;
+        } else if (nextLesson) {
+            const previousLesson = allLessonsToday.slice().reverse().find(l => l.endMinutes <= currentMinutes);
+            if (previousLesson) {
+                 message = `Teraz przerwa. Następna lekcja: <strong>${nextLesson.subject}</strong> o ${nextLesson.startTime}.`;
+            } else {
+                 message = `Lekcje jeszcze się nie zaczęły. Pierwsza lekcja: <strong>${nextLesson.subject}</strong> o ${nextLesson.startTime}.`;
+            }
+        } else if (allLessonsToday.length > 0) {
+            message = "Koniec lekcji na dziś.";
+        }
+
+        if (message) {
+            currentLessonInfoContainer.innerHTML = message;
+            currentLessonInfoContainer.style.display = 'block';
+        } else {
+            currentLessonInfoContainer.style.display = 'none';
+        }
+    }
+
     function renderTimetable(data) {
         calculateTimeRange(data);
         setupGrid(data);
         buildTimeColumn();
         buildSchedule(data);
+        highlightCurrentDay();
+        
         updateTimeIndicator();
-        setInterval(updateTimeIndicator, 60000);
+        updateCurrentLessonInfo();
+        setInterval(() => {
+            updateTimeIndicator();
+            updateCurrentLessonInfo();
+        }, 60000);
     }
     
     function calculateTimeRange(data) {
@@ -177,13 +249,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const currentMinutes = now.getHours() * 60 + now.getMinutes();
         const topPosition = (currentMinutes - (START_HOUR * 60)) * PIXELS_PER_MINUTE;
+        const currentTimeString = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
 
         if (topPosition >= 0 && topPosition <= (END_HOUR - START_HOUR) * 60 * PIXELS_PER_MINUTE) {
             indicator.style.display = 'block';
             indicator.style.top = `${topPosition}px`;
+            indicator.style.setProperty('--time-indicator-text', `"${currentTimeString}"`);
         } else {
             indicator.style.display = 'none';
         }
+    }
+
+    function highlightCurrentDay() {
+        const daysOfWeek = ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"];
+        const today = new Date().getDay();
+        const dayName = daysOfWeek[today];
+
+        const dayHeaders = document.querySelectorAll('.day-header');
+        dayHeaders.forEach(header => {
+            if (header.textContent === dayName) {
+                header.style.backgroundColor = 'var(--accent-color)';
+                header.style.color = 'var(--current-day-text)';
+                header.style.fontWeight = 'bold';
+                const dayColumn = header.closest('.header-area').nextElementSibling.querySelector('.day-column');
+                if (dayColumn) {
+                    dayColumn.style.backgroundColor = 'var(--current-day-bg)';
+                }
+            }
+        });
     }
 
     fetch('data.json')
@@ -193,13 +286,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return response.json();
         })
-        .then(data => renderTimetable(data))
+        .then(data => {
+            timetableData = data;
+            renderTimetable(data);
+        })
         .catch(error => {
             console.error("Error loading or parsing JSON data:", error);
             scheduleArea.innerHTML = `<p style="text-align:center; color:red; grid-column: 1 / -1;">Nie udało się załadować planu lekcji.</p>`;
         });
 
-    document.getElementById('printButton').addEventListener('click', () => {
+    printButton.addEventListener('click', () => {
         window.print();
     });
 });
