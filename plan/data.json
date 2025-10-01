@@ -55,7 +55,7 @@
                     "lessons": [
                         { "startTime": "10:20", "endTime": "11:05", "subject": "Edukacja dla bezpieczeństwa", "room": "6.02" },
                         { "startTime": "11:15", "endTime": "12:00", "subject": "Historia", "room": "6.09" },
-                        { "startTime": "12:10", "endTime": "12:55", "subject": "Matematyka", "room": "4.09" }
+                        { "startTime": "12:10", "endTime": "12:55", "subject": "Matematyka", "room": "4.12" }
                     ]
                 }
             ]
