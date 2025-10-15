@@ -36,6 +36,8 @@
                         { "startTime": "13:10", "endTime": "13:55", "subject": "Język niemiecki |G1", "room": "6.14" },
                         { "startTime": "14:05", "endTime": "14:50", "subject": "Język angielski |G1", "room": "4.05" },
                         { "startTime": "15:00", "endTime": "15:45", "subject": "Język polski", "room": "4.11" },
+                        { "startTime": "16:45", "endTime": "17:30", "subject": "Język polski dla uczniów z Ukrainy", "room": "5.22" },
+                        { "startTime": "17:35", "endTime": "18:20", "subject": "Język polski dla uczniów z Ukrainy", "room": "5.22" },
                         { "startTime": "16:45", "endTime": "18:20", "subject": "Język polski jako obcy", "room": "5.22" }
                     ]
                 }
