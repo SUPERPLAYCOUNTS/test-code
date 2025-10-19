@@ -205,6 +205,7 @@ h1 {
     font-weight: 500;
 }
 
+/* === ОНОВЛЕНІ СТИЛІ ДЛЯ МОБІЛЬНИХ === */
 @media (max-width: 768px) {
     body {
         padding: 8px;
@@ -250,16 +251,57 @@ h1 {
     }
 }
 
+/* === СТИЛІ ДЛЯ ДРУКУ === */
 @media print {
-    body, .container { background: #fff !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
-    .main-header, #printButton, .time-indicator, #current-lesson-info { display: none !important; }
-    * { color: #000 !important; border-color: #ccc !important; }
-    .timetable-wrapper { grid-template-columns: 60px 1fr; border: 1px solid #ccc !important; border-radius: 0 !important; overflow: visible !important; }
-    .schedule-area, .header-area { overflow: visible !important; }
-    .day-header, .time-column { background-color: #f0f0f0 !important; }
-    .schedule-area { background-image: none !important; height: auto !important; }
-    .time-column { position: static; }
-    .time-slot { position: static !important; transform: none !important; height: 40px; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #ccc; }
-    .day-column { padding: 4px; display: flex; flex-direction: column; gap: 4px; min-height: auto !important; }
-    .lesson { position: static !important; width: auto !important; height: auto !important; font-size: 8pt !important; page-break-inside: avoid; }
+    @page {
+        size: A4 landscape;
+        margin: 1cm;
+    }
+
+    body, .container {
+        background: #fff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    .main-header, #printButton, .time-indicator, #current-lesson-info, #current-lesson-info-uwaga {
+        display: none !important;
+    }
+
+    * {
+        color: #000 !important;
+        border-color: #ccc !important;
+        box-shadow: none !important;
+        transition: none !important;
+    }
+
+    .timetable-wrapper {
+        border-radius: 0 !important;
+        border: 1px solid #ccc !important;
+        overflow: visible !important;
+    }
+
+    .day-header, .time-column {
+        background-color: #f0f0f0 !important;
+    }
+    .day-column {
+        background-color: #fff !important;
+    }
+    .lesson {
+        font-size: 7pt !important;
+        padding: 2px 4px;
+    }
+    .lesson-time, .lesson-subject, .lesson-room {
+        font-size: 7pt !important;
+        margin-bottom: 1px;
+    }
+    .time-slot {
+        font-size: 7pt !important;
+    }
+    .day-header {
+        font-size: 9pt !important;
+        padding: 8px 4px;
+    }
 }
