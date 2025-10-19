@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const PIXELS_PER_MINUTE = 1.4;
     const timeColumn = document.getElementById('time-column');
     const scheduleArea = document.getElementById('schedule-area');
     const headerArea = document.getElementById('header-area');
@@ -8,7 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let timetableData = null;
     let START_HOUR = 7;
-    let END_HOUR = 21;
+    let END_HOUR = 16;
+    let PIXELS_PER_MINUTE = 1.4;
 
     const subjectColors = {};
     const colorPalette = [
@@ -77,18 +77,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function renderTimetable(data) {
+    function renderTimetable(data, isPrint = false) {
+        PIXELS_PER_MINUTE = isPrint ? 0.8 : 1.4; // Use different scale for printing
+
         calculateTimeRange(data);
         setupGrid(data);
         buildTimeColumn();
         buildSchedule(data);
-        highlightCurrentDay(data);
-        updateTimeIndicator();
-        updateCurrentLessonInfo();
-        setInterval(() => {
+
+        if (!isPrint) {
+            highlightCurrentDay(data);
             updateTimeIndicator();
             updateCurrentLessonInfo();
-        }, 60000);
+            if (!window.timetableUpdateInterval) {
+                 window.timetableUpdateInterval = setInterval(() => {
+                    updateTimeIndicator();
+                    updateCurrentLessonInfo();
+                }, 60000);
+            }
+        }
     }
     
     function calculateTimeRange(data) {
@@ -246,12 +253,24 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             timetableData = data;
-            renderTimetable(data);
+            renderTimetable(data, false);
         })
         .catch(error => {
             console.error("Błąd ładowania planu lekcji:", error);
             scheduleArea.innerHTML = `<p style="text-align:center; color:red; grid-column: 1 / -1;">Nie udało się załadować planu lekcji.</p>`;
         });
+
+    window.addEventListener('beforeprint', () => {
+        if (timetableData) {
+            renderTimetable(timetableData, true);
+        }
+    });
+
+    window.addEventListener('afterprint', () => {
+        if (timetableData) {
+            renderTimetable(timetableData, false);
+        }
+    });
 
     printButton.addEventListener('click', () => window.print());
 });
