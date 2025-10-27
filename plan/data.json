@@ -11,8 +11,7 @@
                         { "startTime": "10:20", "endTime": "11:05", "subject": "Wychowanie fizyczne G1", "room": "Spo2" },
                         { "startTime": "11:15", "endTime": "12:00", "subject": "Wychowanie fizyczne G1", "room": "Spo2" },
                         { "startTime": "12:10", "endTime": "12:55", "subject": "Wychowanie fizyczne G1", "room": "Spo2" },
-                        { "startTime": "13:10", "endTime": "13:55", "subject": "Język angielski w informatyce G1", "room": "5.05" },
-                        { "startTime": "14:05", "endTime": "14:50", "subject": "Język polski", "room": "4.11" }
+                        { "startTime": "13:10", "endTime": "13:55", "subject": "Język angielski w informatyce G1", "room": "5.05" }
                     ]
                 }
             ]
