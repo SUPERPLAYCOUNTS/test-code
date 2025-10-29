@@ -37,12 +37,12 @@
             "columns": [
                 {
                     "lessons": [
-                        { "startTime": "09:25", "endTime": "10:10", "subject": "Język angielski G1", "room": "6.07" },
+                        { "startTime": "09:25", "endTime": "10:10", "subject": "Język angielski G1", "room": "4.13" },
                         { "startTime": "10:20", "endTime": "11:05", "subject": "Język polski", "room": "4.13" },
                         { "startTime": "11:15", "endTime": "12:00", "subject": "Bezpieczeństwo i higiena pracy", "room": "4.12" },
                         { "startTime": "12:10", "endTime": "12:55", "subject": "Informatyka G1", "room": "4.22" },
                         { "startTime": "13:10", "endTime": "13:55", "subject": "Język niemiecki G1", "room": "6.14" },
-                        { "startTime": "14:05", "endTime": "14:50", "subject": "Język angielski G1", "room": "4.05" },
+                        { "startTime": "14:05", "endTime": "14:50", "subject": "Język angielski G1", "room": "4.22" },
                         { "startTime": "15:00", "endTime": "15:45", "subject": "Język polski", "room": "4.11" },
                         { "startTime": "16:45", "endTime": "17:30", "subject": "Język polski dla uczniów z Ukrainy", "room": "5.22" },
                         { "startTime": "17:35", "endTime": "18:20", "subject": "Język polski dla uczniów z Ukrainy", "room": "5.22" }
