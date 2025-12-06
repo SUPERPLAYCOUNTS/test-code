@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><i class="fas fa-shield-alt"></i>Password Generator</h1>
+            <p>Create secure and strong passwords for your online accounts.</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <div class="password-display-container">
+                    <input type="text" id="password-output" readonly placeholder="Your new password appears here...">
+                    <div class="password-strength-indicator" id="password-strength-indicator"></div>
+                    <button id="copy-btn" title="Copy to Clipboard"><i class="far fa-copy"></i></button>
+                </div>
+                <div id="password-strength-text" class="password-strength-text"></div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-sliders-h"></i>Customize Your Password</h2>
+                
+                <div class="input-group slider-control">
+                    <label for="length">Password Length</label>
+                    <input type="range" id="length" min="4" max="64" value="16">
+                    <div class="slider-value-display" id="length-display">16</div>
+                </div>
+
+                <div class="options-grid">
+                    <div class="option">
+                        <input type="checkbox" id="uppercase" checked>
+                        <label for="uppercase">Uppercase (A-Z)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="lowercase" checked>
+                        <label for="lowercase">Lowercase (a-z)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="numbers" checked>
+                        <label for="numbers">Numbers (0-9)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="symbols" checked>
+                        <label for="symbols">Symbols (!@#$)</label>
+                    </div>
+                    <div class="option">
+                        <input type="checkbox" id="exclude-similar">
+                        <label for="exclude-similar">Exclude Similar (O/0, l/I)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-cogs"></i>Advanced Generation</h2>
+                <div class="advanced-options">
+                    <div class="input-group">
+                        <label for="password-type">Generation Type</label>
+                        <select id="password-type">
+                            <option value="random">Completely Random</option>
+                            <option value="word-like">Word-like (e.g., MorLavi9!)</option>
+                            <option value="passphrase">Passphrase (e.g., sunrise-wolf-laptop)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="quantity">Number of Passwords</label>
+                        <input type="number" id="quantity" value="1" min="1" max="50">
+                    </div>
+                </div>
+                 <button id="generate-btn" class="btn-primary"><i class="fas fa-sync-alt"></i>Generate Password(s)</button>
+            </div>
+            
+            <div class="card" id="multi-password-output-container" style="display: none;">
+                <h2><i class="fas fa-list-ul"></i>Generated Passwords</h2>
+                <textarea id="multi-password-output" readonly></textarea>
+                <div class="export-buttons">
+                    <button class="btn-secondary" data-format="txt">Export as TXT</button>
+                    <button class="btn-secondary" data-format="csv">Export as CSV</button>
+                    <button class="btn-secondary" data-format="json">Export as JSON</button>
+                </div>
+            </div>
+
+            <div class="card">
+                 <h2><i class="fas fa-qrcode"></i>QR Code Transfer</h2>
+                 <p>Scan this QR code to quickly transfer the first generated password to your mobile device.</p>
+                 <div id="qrcode-container">
+                    <canvas id="qrcode"></canvas>
+                 </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-lightbulb"></i>Password Security Tips</h2>
+                <ul class="tips-list">
+                    <li><i class="fas fa-times-circle"></i>Avoid using personal information like your birth year or name.</li>
+                    <li><i class="fas fa-times-circle"></i>Steer clear of common patterns like "qwerty" or "123456".</li>
+                    <li><i class="fas fa-times-circle"></i>Don't use more than two repeating consecutive characters (e.g., "111").</li>
+                    <li><i class="fas fa-check-circle"></i>Combine uppercase letters, lowercase letters, numbers, and symbols.</li>
+                    <li><i class="fas fa-check-circle"></i>The longer the password, the more secure it is.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
