@@ -17,7 +17,12 @@
   <header>
     <div class="container">
       <h1><a href="/"><i class="fas fa-flask-vial"></i> My Experiments</a></h1>
-      <input id="search" type="text" placeholder="Find the project..." autocomplete="off" />
+      <div class="search-wrapper">
+        <input id="search" type="text" placeholder="Find the project..." autocomplete="off" />
+        <button id="clear-search" class="clear-search-btn" title="Clear search">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -118,6 +123,13 @@
           </a>
         </li>
         <li>
+          <a href="password-generator/" class="project-card" title="password-generator">
+            <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+            <h3 class="name">Password Generator</h3>
+            <p class="description">Create secure and strong passwords for your online accounts</p>
+          </a>
+        </li>
+        <li>
           <a href="qrcode-generator/" class="project-card" title="QR Code Generator">
             <div class="card-icon"><i class="fas fa-qrcode"></i></div>
             <h3 class="name">Qr Code Generator</h3>
@@ -188,6 +200,7 @@
           </a>
         </li>
       </ul>
+      <p id="no-results" class="no-results-message" style="display: none;">No projects found matching your search.</p>
     </div>
   </main>
 
