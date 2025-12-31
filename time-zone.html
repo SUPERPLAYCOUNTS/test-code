@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Stream Timers 4x4</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 15px;
+            height: 100%;
+            width: 100%;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .tickcounter {
+            width: 100% !important;
+            height: 100% !important;
+            padding-bottom: 0 !important;
+            margin: 0 !important;
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tc-wrapper {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="card">
+            <a data-type="countdown" data-id="9025459" class="tickcounter" title="Europe/Warsaw" href="//www.tickcounter.com/">Europe/Warsaw</a>
+        </div>
+        
+        <div class="card">
+            <a data-type="countdown" data-id="9025468" class="tickcounter" title="Europe/Kyiv" href="//www.tickcounter.com/">Europe/Kyiv</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025492" class="tickcounter" title="Europe/Bratislava" href="//www.tickcounter.com/">Europe/Bratislava</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025729" class="tickcounter" title="Europe/Moscow" href="//www.tickcounter.com/">Europe/Moscow</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025749" class="tickcounter" title="America/New York" href="//www.tickcounter.com/">America/New York</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025766" class="tickcounter" title="Europe/Minsk" href="//www.tickcounter.com/">Europe/Minsk</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025775" class="tickcounter" title="America/Sao Paulo" href="//www.tickcounter.com/">America/Sao Paulo</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025791" class="tickcounter" title="Atlantic/Reykjavik" href="//www.tickcounter.com/">Atlantic/Reykjavik</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025799" class="tickcounter" title="Europe/London" href="//www.tickcounter.com/">Europe/London</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025809" class="tickcounter" title="Europe/Madrid" href="//www.tickcounter.com/">Europe/Madrid</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025818" class="tickcounter" title="Europe/Berlin" href="//www.tickcounter.com/">Europe/Berlin</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025826" class="tickcounter" title="Africa/Lagos" href="//www.tickcounter.com/">Africa/Lagos</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025837" class="tickcounter" title="Europe/Athens" href="//www.tickcounter.com/">Europe/Athens</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025853" class="tickcounter" title="Africa/Cairo" href="//www.tickcounter.com/">Africa/Cairo</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025867" class="tickcounter" title="Asia/Istanbul" href="//www.tickcounter.com/">Asia/Istanbul</a>
+        </div>
+
+        <div class="card">
+            <a data-type="countdown" data-id="9025877" class="tickcounter" title="Asia/Karachi" href="//www.tickcounter.com/">Asia/Karachi</a>
+        </div>
+    </div>
+
+    <script>
+        (function(d, s, id) { 
+            var js, pjs = d.getElementsByTagName(s)[0]; 
+            if (d.getElementById(id)) return; 
+            js = d.createElement(s); js.id = id; 
+            js.src = "//www.tickcounter.com/static/js/loader.js"; 
+            pjs.parentNode.insertBefore(js, pjs); 
+        }(document, "script", "tickcounter-sdk"));
+    </script>
+
+</body>
+</html>
