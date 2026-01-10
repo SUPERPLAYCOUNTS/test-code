@@ -106,16 +106,24 @@ const od = new Odometer({
 
 async function fetchClicks() {
     try {
-        const response = await fetch('https://corsproxy.io/?https://alesclicker.vercel.app/api/clicks');
+        const timestamp = Date.now();
+        const targetUrl = `https://alesclicker.vercel.app/api/clicks?cb=${timestamp}`;
+        const proxyUrl = `https://corsproxy.io/?${targetUrl}`;
+        const response = await fetch(proxyUrl, {
+            cache: 'no-store'
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        console.log("Received data:", data)
-        console.log("Updating Odometer to:", data.exactClicks);
-        od.update(data.exactClicks);
+        if (data.exactClicks !== undefined) {
+             od.update(data.exactClicks);
+        }
+
     } catch (error) {
-        console.error('Error while retrieving data:', error);
+        console.error('Data retrieval error:', error);
     }
 }
 
 fetchClicks();
-
 setInterval(fetchClicks, 5000);
