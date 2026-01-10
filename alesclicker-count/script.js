@@ -108,6 +108,8 @@ async function fetchClicks() {
     try {
         const response = await fetch('https://corsproxy.io/?https://alesclicker.vercel.app/api/clicks');
         const data = await response.json();
+        console.log("Received data:", data)
+        console.log("Updating Odometer to:", data.exactClicks);
         od.update(data.exactClicks);
     } catch (error) {
         console.error('Error while retrieving data:', error);
@@ -115,4 +117,5 @@ async function fetchClicks() {
 }
 
 fetchClicks();
+
 setInterval(fetchClicks, 5000);
