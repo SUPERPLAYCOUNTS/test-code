@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Number</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div class="card">
+        <div id="screen-start" class="screen active">
+            <h1 class="main-title">Guess the<br>Number</h1>
+            <p class="main-sub">Can you guess the number?</p>
+
+            <div class="field">
+                <label for="sel-range">Number range</label>
+                <select id="sel-range">
+                    <option value="100" selected>0 - 100</option>
+                    <option value="50">0 - 50</option>
+                    <option value="10">0 - 10</option>
+                    <option value="5">0 - 5</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="sel-diff">Difficulty</label>
+                <select id="sel-diff">
+                    <option value="easy" selected>Easy 😎</option>
+                    <option value="medium">Medium 🤔</option>
+                    <option value="hard">Hard 😡</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+        </div>
+
+        <div id="screen-game" class="screen">
+            <div class="game-header">
+                <div class="range-label">
+                    range<br><strong id="g-range">0 - 100</strong>
+                </div>
+                <div class="att-wrap">
+                    <div class="att-label">tries left</div>
+                    <div class="att-num" id="g-att">10</div>
+                </div>
+            </div>
+
+            <div class="bar-track">
+                <div class="bar-fill" id="bar-fill"></div>
+            </div>
+
+            <div class="terminal-wrap">
+                <input type="number" class="terminal-input" id="guess-input" placeholder="???" min="0" autocomplete="off">
+            </div>
+
+            <div class="hint-line" id="hint-line">Type a number and press Enter</div>
+
+            <button class="btn btn-primary" onclick="makeGuess()">Guess</button>
+
+            <div class="history-section" id="history-section" style="display: none;">
+                <p class="history-label">Attempt log</p>
+                <div class="history-scroll" id="history-list"></div>
+            </div>
+        </div>
+
+        <div id="screen-end" class="screen">
+            <span class="end-icon" id="end-icon"></span>
+            <h2 class="end-title" id="end-title"></h2>
+            <p class="end-caption" id="end-caption"></p>
+            <span class="end-number" id="end-number"></span>
+
+            <button class="btn btn-primary" onclick="startGame()">Play Again</button>
+            <button class="btn btn-ghost" onclick="goToMenu()">⚙ Change Settings</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
