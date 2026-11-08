@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const API_URL = 'https://c94tmq-3000.csb.app/api/top';
+    const API_URL = 'https://color-battles.pp.ua/api/top';
     const UPDATE_INTERVAL_MS = 3000;
     const leftColumn = document.getElementById('column-left');
     const rightColumn = document.getElementById('column-right');
